@@ -1,0 +1,11 @@
+:root {
+    /* --font-family: 'Inter'; */
+    --sidebar-width: 10rem !important;
+    --collapsed-sidebar-width: 5rem;
+}
+
+img.max-w-none.object-cover {
+    /* height: 8rem; */
+    width: 8rem;
+    object-fit: cover;
+}

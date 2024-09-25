@@ -1,0 +1,372 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "通路消费侧API文档",
+        "description": "",
+        "contact": {
+            "email": "xiaopei0206@icloud.com"
+        },
+        "version": "0.5.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "/api/cars": {
+            "get": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "获取用户车辆列表",
+                "operationId": "158b081c3b62cbad1d47a7baf9ed52ac",
+                "parameters": [
+                    {
+                        "name": "mobile",
+                        "in": "query",
+                        "description": "用户手机号",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "添加车辆信息",
+                "operationId": "581b89650bc67a7ae22937830482fcb7",
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "mobile": {
+                                        "description": "用户手机号",
+                                        "type": "string"
+                                    },
+                                    "plate_no": {
+                                        "description": "车牌号",
+                                        "type": "string"
+                                    },
+                                    "vin": {
+                                        "description": "17位车架号（VIN码）",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/cars/{id}": {
+            "get": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "获取单个车辆信息",
+                "operationId": "515fdb22358428f48832b42dc20c715f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "车辆ID",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mobile",
+                        "in": "query",
+                        "description": "用户手机号",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "更新车辆信息",
+                "operationId": "1feba9c073fea407739f3c5f99980c70",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "车辆ID",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "mobile": {
+                                        "description": "用户手机号",
+                                        "type": "string"
+                                    },
+                                    "plate_no": {
+                                        "description": "车牌号",
+                                        "type": "string"
+                                    },
+                                    "vin": {
+                                        "description": "17位车架号（VIN码）",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Car"
+                ],
+                "summary": "删除车辆",
+                "operationId": "d384de4cd22846c8dd126d21f1bfee65",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "车辆ID",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mobile",
+                        "in": "query",
+                        "description": "用户手机号",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/challenge/range": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "获取直推排行榜",
+                "operationId": "29f64b4cb80ac8850a93d3c86feabac3",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/user/team-overview": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "获取用户分销网体",
+                "operationId": "93fe6c20eed8d2af1e5ec4a70b29aec4",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/user/team-detail": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "获取直推用户网体数据",
+                "operationId": "48ef75ff7610e52ae47e4eefee5c23d0",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/wxapp/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login api",
+                "operationId": "3f7da50a03a0cad5e3895ad3422757ce",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "code": {
+                                        "description": "code",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/wxapp/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register api",
+                "operationId": "15ddd8927fef2a85acaed35c571f6ea0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "session_key": {
+                                        "description": "session key from login api response",
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "description": "code for phone number",
+                                        "type": "string"
+                                    },
+                                    "store_id": {
+                                        "description": "store id from init",
+                                        "type": "integer"
+                                    },
+                                    "referer_id": {
+                                        "description": "referer id from init",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
